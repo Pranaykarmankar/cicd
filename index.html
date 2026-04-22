@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Practical 8 CI/CD</title>
+    <title>My Simple TO-DO App</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        input { padding: 10px; width: 200px; }
+        button { padding: 10px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { background: #f4f4f4; margin: 5px auto; padding: 10px; width: 300px; border-radius: 5px; }
+    </style>
 </head>
 <body>
-    <h1>Success! My CI/CD Pipeline is working.</h1>
-    <p>User Details Application Deployed via AWS CodeDeploy.</p>
+    <h1>My CI/CD TO-DO List</h1>
+    <input type="text" id="taskInput" placeholder="New Task...">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            let input = document.getElementById('taskInput');
+            if (input.value === '') return;
+            let li = document.createElement('li');
+            li.textContent = input.value;
+            document.getElementById('taskList').appendChild(li);
+            input.value = '';
+        }
+    </script>
 </body>
 </html>
